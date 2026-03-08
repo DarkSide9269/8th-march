@@ -3,8 +3,12 @@
 const canvas = document.getElementById("starCanvas")
 const ctx = canvas.getContext("2d")
 
+function resizeCanvas(){
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
+}
+
+resizeCanvas()
 
 let stars=[]
 
@@ -107,8 +111,6 @@ showSlide(index)
 
 }
 
-// ----- ефект друку для фото -----
-
 function typePhotoText(element){
 
 const fullText=element.dataset.text
@@ -132,8 +134,6 @@ element.classList.remove("typingCursor")
 type()
 
 }
-
-// ----- показ слайду -----
 
 function showSlide(i){
 
@@ -163,8 +163,6 @@ typePhotoText(textEl)
 
 }
 
-// ---- клік на фото ----
-
 slides.forEach((slide)=>{
 
 const img=slide.querySelector("img")
@@ -187,9 +185,4 @@ showSlide(index)
 
 })
 
-window.addEventListener("resize",()=>{
-
-canvas.width=window.innerWidth
-canvas.height=window.innerHeight
-
-})
+window.addEventListener("resize",resizeCanvas)
